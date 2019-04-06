@@ -68,5 +68,25 @@ public class MainController {
     }
 
     public void btnTotalSumClick(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("TotalSum.fxml"));
+
+            Scene scene = new Scene(fxmlLoader.load(),280,280);
+            Stage stage = new Stage();
+            stage.setTitle("Total sum per day");
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            TotalSumController controller = fxmlLoader.getController();
+            controller.setService(billService);
+            stage.showAndWait();
+
+            bills.clear();
+            bills.addAll(billService.getAllBills());
+        } catch (IOException error) {
+            Logger logger = Logger.getLogger(getClass().getName());
+            logger.log(Level.SEVERE, "Failed to create new window: Total sum per day", error);
+        }
     }
+
 }

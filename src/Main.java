@@ -28,8 +28,6 @@ public class Main extends Application {
         billService.addBill("8",42,"Shopping","03.10.2018");
         billService.addBill("9",124,"Maintenance","24.10.2018");
 
-        //Parent root = FXMLLoader.load(getClass().getResource("../UI/mainWindow.fxml"));
-
         MainController mainController = fxmlLoader.getController();
         mainController.setService(billService);
 
