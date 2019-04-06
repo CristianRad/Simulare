@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainController">
+   <children>
+      <Label text="Bills">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="440.0" prefWidth="600.0">
+         <children>
+            <TableView fx:id="tblBills" prefHeight="410.0" prefWidth="400.0">
+              <columns>
+                <TableColumn fx:id="colBillId" prefWidth="50.0" style="-fx-alignment: CENTER;" text="ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colBillSum" prefWidth="50.0" style="-fx-alignment: CENTER;" text="Sum">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="sum" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colBillDescription" prefWidth="200.0" style="-fx-alignment: CENTER;" text="Description">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="description" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colBillDate" prefWidth="98.0" style="-fx-alignment: CENTER;" text="Date">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="date" />
+                    </cellValueFactory>
+                </TableColumn>
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+         <children>
+            <Button fx:id="btnAddBill" onAction="#btnAddBillClick" text="Add Bill" />
+            <Button fx:id="btnTotalSum" onAction="#btnTotalSumClick" text="Total sum per day" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
